@@ -31,7 +31,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             last_msg_id = res.json()["value"]
             await context.bot.delete_message(message_id=last_msg_id, chat_id='-1001871429218')
             
-            text = f"👉 Vui lòng KYC để được đăng quảng cáo. Chat ngay với bot @ChoOTCVN_bot để KYC!\n@{username}"
+            text = f"👉 @{username} vui lòng KYC để được đăng quảng cáo. Chat ngay với bot @ChoOTCVN_bot để KYC."
             msg = await context.bot.send_message(chat_id=chat_id, text=text, parse_mode=constants.ParseMode.HTML)
             requests.put(f"{domain}/api/setup/checkkyc", {'value': msg.message_id})
         except:
